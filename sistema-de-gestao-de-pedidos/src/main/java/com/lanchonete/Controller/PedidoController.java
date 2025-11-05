@@ -1,4 +1,4 @@
-package com.lanchonete.Controller;
+package com.lanchonete.controller;
 
 public class PedidoController {
 

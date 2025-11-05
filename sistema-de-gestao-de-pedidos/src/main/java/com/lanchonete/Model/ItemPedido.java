@@ -1,4 +1,4 @@
-package com.lanchonete.Model;
+package com.lanchonete.model;
 
 public class ItemPedido {
 
