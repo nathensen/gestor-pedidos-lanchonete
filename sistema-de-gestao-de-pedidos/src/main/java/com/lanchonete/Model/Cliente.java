@@ -1,5 +1,7 @@
 package com.lanchonete.model;
 
+import java.util.List;
+
 public class Cliente {
 
     private String nome;
@@ -29,6 +31,16 @@ public class Cliente {
     }
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public List<Cliente> buscarTodos() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+    }
+
+    public void inserir(Cliente cliente) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
     }
 
 }
