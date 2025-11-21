@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Pedido {
     
-    private Integer id;
+    private Integer idPedido;
     private Cliente cliente;
     private List<ItemPedido> itens = new ArrayList<>();
     private StatusPedido status;
@@ -17,9 +17,9 @@ public class Pedido {
         this.dataHora = LocalDateTime.now();
     }
 
-    public Pedido(Integer id, Cliente cliente) {
+    public Pedido(Integer idPedido, Cliente cliente) {
         this();
-        this.id = id;
+        this.idPedido = idPedido;
         this.cliente = cliente;
     }
 
@@ -32,11 +32,11 @@ public class Pedido {
     }
 
     public Integer getId() {
-        return id;
+        return idPedido;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idPedido) {
+        this.idPedido = idPedido;
     }
 
     public Cliente getCliente() {

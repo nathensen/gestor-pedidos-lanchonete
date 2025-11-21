@@ -2,23 +2,23 @@ package com.lanchonete.model;
 
 public class ItemPedido {
 
-    private Integer id;
+    private Integer idPedido;
     private Produto produto;
     private Integer quantidade;
     private Double subtotal;
     
-    public ItemPedido(Integer id, Produto produto, Integer quantidade, Double subtotal) {
-        this.id = id;
+    public ItemPedido(Integer idPedido, Produto produto, Integer quantidade, Double subtotal) {
+        this.idPedido = idPedido;
         this.produto = produto;
         this.quantidade = quantidade;
         this.subtotal = subtotal;
     }
     
-    public Integer getId() {
-        return id;
+    public Integer getIdPedido() {
+        return idPedido;
     }
     public void setId(Integer id) {
-        this.id = id;
+        this.idPedido = idPedido;
     }
     public Produto getProduto() {
         return produto;
@@ -38,5 +38,4 @@ public class ItemPedido {
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
-
 }
