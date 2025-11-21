@@ -6,7 +6,7 @@ public class Funcionario {
     private int id;
     private String funcao;
     
-    public Cliente(String nome, int id, String funcao) {
+    public Funcionario(String nome, int id, String funcao) {
         this.nome = nome;
         this.id = id;
         this.funcao = funcao;
