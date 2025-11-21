@@ -1,5 +1,6 @@
 CREATE DATABASE lanchonete_db;
 USE lanchonete_db;
+
 -- Tabela de Clientes
 CREATE TABLE cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
