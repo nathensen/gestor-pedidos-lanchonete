@@ -1,15 +1,15 @@
 package com.lanchonete.model;
 
-public class Cliente {
+public class Funcionario {
 
     private String nome;
-    private int telefone;
-    private String endereco;
+    private int id;
+    private String funcao;
     
-    public Cliente(String nome, int telefone, String endereco) {
+    public Cliente(String nome, int id, String funcao) {
         this.nome = nome;
-        this.telefone = telefone;
-        this.endereco = endereco;
+        this.id = id;
+        this.funcao = funcao;
     }
 
     public String getNome() { 
@@ -18,17 +18,17 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getTelefone() {
-        return telefone;
+    public int getId() {
+        return id;
     }
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getEndereco() {
-        return endereco;
+    public String getFuncao() {
+        return funcao;
     }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
 }

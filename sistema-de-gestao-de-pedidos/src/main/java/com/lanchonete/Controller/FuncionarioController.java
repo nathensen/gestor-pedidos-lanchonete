@@ -1,5 +1,5 @@
 package com.lanchonete.controller;
 
-public class ClienteController {
+public class FuncionarioController {
     
 }

@@ -1,6 +1,6 @@
 package com.lanchonete.Repository;
 
-public interface IClienteRepository {
+public interface IFuncionarioRepository {
 
 }
 
