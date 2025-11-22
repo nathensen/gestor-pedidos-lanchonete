@@ -1,73 +1,63 @@
-package com.lanchonete.model;
+package model;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+
+import com.lanchonete.model.ItemPedido;
+
+import util.Validador;
+import util.FormatadorMoeda;
 
 public class Pedido {
-    
-    private Integer idPedido;
-    private Cliente cliente;
-    private List<ItemPedido> itens = new ArrayList<>();
-    private StatusPedido status;
-    private LocalDateTime dataHora;
+    private String nomeCliente;
+    private List<ItemPedido> itensConsumidos;
 
-    public Pedido() {
-        this.status = StatusPedido.EM_PRODUCAO;
-        this.dataHora = LocalDateTime.now();
-    }
-
-    public Pedido(Integer idPedido, Cliente cliente) {
-        this();
-        this.idPedido = idPedido;
-        this.cliente = cliente;
+    public Pedido(String nomeCliente) {
+        Validador.validarString(nomeCliente, "Nome do cliente não pode ser vazio");
+        this.nomeCliente = nomeCliente;
+        this.itensConsumidos = new ArrayList<>();
     }
 
     public void adicionarItem(ItemPedido item) {
-        itens.add(item);
+        if (item != null) {
+            itensConsumidos.add(item);
+        }
     }
 
-    public Double calcularTotal() {
-        return itens.stream().mapToDouble(i -> i.getSubtotal()).sum();
+    public double calcularTotal() {
+        double total = 0;
+        for (ItemPedido item : itensConsumidos) {
+            total += item.getPrecoVenda();
+        }
+        return total;
     }
 
-    public Integer getId() {
-        return idPedido;
+    public void mostrarFatura() {
+        System.out.println("------- ProgLanches -------");
+        System.out.println("Cliente: " + nomeCliente);
+        System.out.println("Itens consumidos:");
+        for (ItemPedido item : itensConsumidos) {
+            System.out.println("- " + item.descricao() + " (" + FormatadorMoeda.formatar(item.getPrecoVenda()) + ")");
+        }
+        System.out.println("Total: " + FormatadorMoeda.formatar(calcularTotal()));
     }
 
-    public void setId(Integer idPedido) {
-        this.idPedido = idPedido;
+    public double calcularTroco(double valorPago) {
+        return valorPago - calcularTotal();
+    }
+    
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    // Este é o método que está causando o problema
+    public List<ItemPedido> getItensConsumidos() {
+        // Retorna uma cópia defensiva da lista para evitar modificações externas
+        return new ArrayList<>(itensConsumidos);
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public List<ItemPedido> getItens() {
-        return itens;
-    }
-
-    public void setItens(List<ItemPedido> itens) {
-        this.itens = itens;
-    }
-
-    public StatusPedido getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    // Método para verificar se a lista está vazia
+    public boolean isEmpty() {
+        return itensConsumidos.isEmpty();
     }
 }

@@ -34,7 +34,7 @@ public class PedidoService {
     public double finalizarPedido(Pedido pedido, double valorPago, Vendedor vendedor) {
         double total = pedido.calcularTotal();
         double troco = valorPago - total;
-        // Processa o bônus mas não imprime nada
+        // Processa o bônus mas não imprime nada.
         vendedor.calcularBonus(total);
         
         return troco;

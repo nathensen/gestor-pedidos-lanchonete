@@ -4,7 +4,7 @@ import com.lanchonete.model.Funcionario;
 
 public class FuncionarioService {
   /**
-     * Cria uma nova instância de Vendedor
+     * Cria uma nova instância de Vendedor.
      */
     public Funcionario criarFuncionario(String nome, double salario) {
         return new Funcionario(nome, salario);
